@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ozone-challenge-quiz
+    runtime: python
+    plan: free
+    buildCommand: echo "No external Python packages required"
+    startCommand: python ozone_server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: OZONE_TEACHER_PASSWORD
+        sync: false
